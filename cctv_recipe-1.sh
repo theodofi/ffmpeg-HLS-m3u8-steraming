@@ -8,6 +8,7 @@ fi
 
 rtsp_url=$1
 output_m3u8=$2
+
 meta_title="CDN Life media"
 meta_comment="CCTV Diskominfo Jepara - Life media"
 meta_publisher="Life media"

@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+select {
+    padding: 12px;
+    margin: 20px;
+}
+
+.header {
+    background-color: #4d60ad;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+.video-container {
+    text-align: center;
+    margin: 20px;
+}
+
+video {
+    margin: 20px 0;
+    background-color: #495057;
+    width: 85%;
+    height: auto;
+}
+
+#videoPlayer {
+    padding: 0px;
+}
+
+@media screen and (max-width: 480px) {
+    select {
+        padding: 6px;
+        margin: 6px;
+    }
+
+    .video-container {
+        margin: 8px;
+    }
+
+    video {
+        margin: 8px;
+        width: 95%;
+    }
+
+}
