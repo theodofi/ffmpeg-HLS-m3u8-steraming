@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var videoSources = [
         { url: 'https://cctv-jepara.lifemedia.id/live/rbra1logo.m3u8', name: 'RBRA 1' },
         { url: 'https://cctv-jepara.lifemedia.id/live/rbra2logo.m3u8', name: 'RBRA 2' },
@@ -16,33 +16,32 @@ document.addEventListener('DOMContentLoaded', function() {
         { url: 'https://cctv-jepara.lifemedia.id/live/jlhoscokrologo.m3u8', name: 'Jl. HOS Cokroaminoto' },
         { url: 'https://cctv-jepara.lifemedia.id/live/simpangdprdlogo.m3u8', name: 'Simpang DPRD' },
         { url: 'https://cctv-jepara.lifemedia.id/live/tugupkklogo.m3u8', name: 'Tugu PKK' },
-        { url: 'https://cctv-jepara.lifemedia.id/live/tugupkklogo-white.m3u8', name: 'Tugu PKK (White)' }
     ];
 
     var videoSelect = document.getElementById('videoSelect');
     var videoPlayer = document.getElementById('videoPlayer');
 
-    videoSources.forEach(function(video, index) {
+    videoSources.forEach(function (video, index) {
         var option = document.createElement('option');
         option.value = video.url;
         option.textContent = video.name;
         videoSelect.appendChild(option);
     });
 
-    videoSelect.addEventListener('change', function() {
+    videoSelect.addEventListener('change', function () {
         var selectedSource = videoSelect.value;
 
         if (selectedSource) {
-            if(Hls.isSupported()) {
+            if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(selectedSource);
                 hls.attachMedia(videoPlayer);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
                     videoPlayer.play();
                 });
             } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
                 videoPlayer.src = selectedSource;
-                videoPlayer.addEventListener('loadedmetadata', function() {
+                videoPlayer.addEventListener('loadedmetadata', function () {
                     videoPlayer.play();
                 });
             } else {
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             videoPlayer.removeAttribute('src'); // empty source
         }
     });
-videoPlayer.addEventListener('click', function() {
+    videoPlayer.addEventListener('click', function () {
         if (videoPlayer.paused) {
             videoPlayer.play();
         } else {
