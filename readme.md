@@ -1,5 +1,9 @@
 **Play HLS Streaming using m3u8 with RTMP file**
 
+Prequiresite
+1. Linux server
+2. Nginx/Apache for web server
+
 Description
 1. Place recipe_file.sh and inputreinput.sh file and src directory in /root
 2. File recipe_file.sh is used for as blueprint for each screen.
