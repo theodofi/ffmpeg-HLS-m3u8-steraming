@@ -9,19 +9,19 @@ fi
 rtsp_url=$1
 output_m3u8=$2
 
-meta_title="CDN Life media"
-meta_comment="CCTV Diskominfo Jepara - Life media"
-meta_publisher="Life media"
+meta_title="HLS Streaming"
+meta_comment="HLS Streaming using rtsp as input and m3u8/ts as output"
+meta_publisher="Theo Hasiholan"
 
-logo_lm="/root/logolifemedia2-modified.png"
-logo_jepara="/root/logojepara.png"
+logo_l="/root/<your left logo>"
+logo_2="/root/<yout right logo>"
 
 max_retries=5
 retry_count=0
 
 while true; do
     ffmpeg -threads 12 -thread_queue_size 1024 -rtsp_transport tcp -i "$rtsp_url" \
-        -i "$logo_lm" -i "$logo_jepara" \
+        -i "$logo_1" -i "$logo_2" \
         -filter_complex "nullsrc=size=640x360 [base];[0:v] setpts=PTS-STARTPTS, scale=640x360 [utama]; \
         [1:v] setpts=PTS-STARTPTS, scale=110x45 [logolm]; \
         [2:v] setpts=PTS-STARTPTS, scale=35x45 [logojpr]; \
